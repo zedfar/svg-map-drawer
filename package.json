@@ -1,11 +1,22 @@
 {
   "name": "svg-map-drawer",
   "private": false,
-  "version": "1.0.6",
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public"
+  },
+  "version": "1.0.14",
   "type": "module",
   "main": "dist/svg-map.umd.js",
   "module": "dist/svg-map.es.js",
   "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/svg-map.es.js",
+      "require": "./dist/svg-map.umd.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
   "files": [
     "dist",
     "dist-app"
@@ -17,26 +28,46 @@
     "react",
     "component",
     "visualization",
-    "indonesia"
+    "indonesia",
+    "react-component",
+    "data-visualization"
   ],
   "license": "MIT",
-  "author": "Yin <ulfar.far@gmail.com>",
+  "author": {
+    "name": "defazr",
+    "email": "ulfar.far@gmail.com"
+  },
+  "homepage": "https://svg-map-drawer.netlify.app/",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zedfar/svg-map-drawer.git"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "build:lib": "vite build --config vite.lib.config.ts",
     "build:app": "vite build --config vite.app.config.ts",
-    "build:all": "npm run build:lib && npm run build:app",
+    "build:types": "tsc --project tsconfig.lib.json --emitDeclarationOnly --declaration --outDir dist",
+    "build:all": "npm run clean && npm run build:lib && npm run build:app && npm run build:types",
+    "clean": "rimraf dist dist-app",
     "lint": "eslint .",
     "preview": "vite preview",
-    "typecheck": "tsc --noEmit -p tsconfig.app.json"
+    "typecheck": "tsc --noEmit -p tsconfig.app.json",
+    "prepublishOnly": "npm run build:all"
   },
-  "dependencies": {
+  "engines": {
+    "node": ">=18"
+  },
+  "peerDependencies": {
+    "react": ">=18.0.0 <20.0.0",
+    "react-dom": ">=18.0.0 <20.0.0",
+    "lucide-react": ">=0.344.0"
+  },
+  "dependencies": {},
+  "devDependencies": {
     "lucide-react": "^0.344.0",
     "react": "^18.3.1",
-    "react-dom": "^18.3.1"
-  },
-  "devDependencies": {
+    "react-dom": "^18.3.1",
     "@eslint/js": "^9.9.1",
     "@types/react": "^18.3.5",
     "@types/react-dom": "^18.3.0",

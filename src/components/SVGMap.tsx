@@ -399,6 +399,8 @@ export default function SVGMap({ regions, svgUrl, svgContent }: SVGMapProps) {
   );
 }
 
+export type { SVGMapProps }
+
 // export function IconHome(props: any) {
 //   return (
 //     <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none"

@@ -25,10 +25,42 @@ Mudah dipakai, mendukung zoom, tooltip, dan custom warna setiap region.
 npm install svg-map-drawer
 ```
 
+```bash
+import SVGMap from "svg-map-drawer";
+import mapSVG from "./indonesia.svg?raw";
+
+function App() {
+  const regions = [
+    { id: "ID31", name: "Jakarta", color: "#10b981", value: 35000 },
+    { id: "ID32", name: "Jawa Barat", color: "#f59e0b", value: 25000 },
+  ];
+
+  return <SVGMap svgUrl={mapSVG} regions={regions} />;
+}
+```
+
 ### CDN
 Gunakan skrip berikut di HTML Anda:
 ```html
 <script src="https://cdn.jsdelivr.net/npm/svg-map-drawer/dist-app/svg-map.bundle.umd.js"></script>
+```
+
+
+### CDN V2
+Gunakan skrip berikut di HTML Anda:
+```html
+<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
+<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/svg-map-drawer/dist-app/svg-map.bundle.umd.js"></script>
+
+<div id="map-container"></div>
+
+<script>
+  const regions = [{ id: "ID31", name: "Jakarta", color: "#10b981" }];
+  const root = ReactDOM.createRoot(document.getElementById("map-container"));
+  root.render(React.createElement(SVGMap, { svgUrl: "indonesia.svg", regions }));
+</script>
+
 ```
 
 ---
@@ -106,3 +138,24 @@ Salin kode berikut ke dalam file `index.html`.
 
 ## 📜 License
 <!-- MIT © [Your Name](https://github.com/yourusername) -->
+MIT License
+
+Copyright (c) 2025 zedfar <ulfar.far@gmail.com>
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.

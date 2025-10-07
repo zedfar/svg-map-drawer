@@ -1,7 +1,7 @@
 # 📍 svg-map-drawer
 
 **Interactive SVG Map Component for React**  
-Mudah dipakai, mendukung zoom, tooltip, dan custom warna setiap region.
+Easy to use, supports zoom, tooltips, and custom colors for each region.
 
 <p align="center">
   <img src="https://cdn.jsdelivr.net/npm/svg-map-drawer@latest/dist/preview-img.png" alt="Preview" width="80%">
@@ -10,129 +10,108 @@ Mudah dipakai, mendukung zoom, tooltip, dan custom warna setiap region.
 ---
 
 ## ✨ Features
-- 🗺️ Render peta berbasis SVG  
-- 🎨 Custom warna tiap region  
-- 🔍 Zoom & pan interaktif  
-- 💬 Tooltip untuk info tambahan  
-- ⚡ Bisa dipakai via **React (npm)** atau **CDN**  
+
+- 🗺️ Render SVG-based maps
+- 🎨 Custom colors per region
+- 🔍 Interactive zoom & pan
+- 💬 Tooltips for additional info
+- ⚡ Available via **React (npm)** or **CDN**
 
 ---
 
-### 1️⃣ Install package utama
+## 📦 Installation
+
+### 1️⃣ Install the main package
+
 ```bash
 npm install svg-map-drawer
 ```
 
-### 2️⃣ Install peer dependencies (wajib)
-Library ini membutuhkan `react`, `react-dom`, `lucide-react`, dan `tailwindcss`.
+### 2️⃣ Install peer dependencies (required)
 
-Jika belum ada di proyekmu, jalankan:
+This library requires `react`, `react-dom`, `lucide-react`, and `tailwindcss`.
+
+If you don't have them in your project yet, run:
+
 ```bash
 npm install react react-dom lucide-react tailwindcss
 ```
 
-> 💡 Jika kamu sudah punya `react` dan `tailwindcss` di proyek, cukup pastikan versinya sesuai (`React >=18`, `Tailwind >=3`).
+> 💡 If you already have `react` and `tailwindcss` in your project, just make sure the versions are compatible (`React >=18`, `Tailwind >=3`).
 
 ---
 
-## ⚙️ Tailwind Setup (jika belum ada)
+## ⚙️ Tailwind Setup
 
-Jika kamu belum mengatur Tailwind di proyekmu, lakukan langkah cepat ini:
+If you haven't set up Tailwind in your project yet, follow these quick steps:
 
-1. Inisialisasi Tailwind:
-   ```bash
-   npx tailwindcss init -p
-   ```
+### 1. Initialize Tailwind
 
-2. Edit `tailwind.config.js`:
-   ```js
-   export default {
-     content: [
-       "./index.html",
-       "./src/**/*.{js,ts,jsx,tsx}",
-       "./node_modules/svg-map-drawer/dist/**/*.{js,ts,jsx,tsx}"
-     ],
-     theme: {
-       extend: {},
-     },
-     plugins: [],
-   }
-   ```
-
-3. Tambahkan direktif Tailwind ke file CSS utama (misalnya `src/index.css`):
-   ```css
-   @tailwind base;
-   @tailwind components;
-   @tailwind utilities;
-   ```
-
-4. Pastikan file CSS di-import di `main.tsx` atau `index.tsx`:
-   ```tsx
-   import './index.css';
-   ```
-
----
-
-
-### CDN
-Gunakan skrip berikut di HTML Anda:
-```html
-<script src="https://cdn.jsdelivr.net/npm/svg-map-drawer/dist-app/svg-map.bundle.umd.js"></script>
+```bash
+npx tailwindcss init -p
 ```
 
+### 2. Configure `tailwind.config.js`
 
-## 🌐 CDN Usage (tanpa React bundler)
+```js
+export default {
+  content: [
+    "./index.html",
+    "./src/**/*.{js,ts,jsx,tsx}",
+    "./node_modules/svg-map-drawer/dist/**/*.{js,ts,jsx,tsx}"
+  ],
+  theme: {
+    extend: {},
+  },
+  plugins: [],
+}
+```
 
-Kalau kamu ingin langsung pakai dari browser tanpa setup React build:
+### 3. Add Tailwind directives to your main CSS file
 
-```html
-<!-- React dan ReactDOM -->
-<script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
-<script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
+Example in `src/index.css`:
 
-<!-- SVG Map Drawer -->
-<script src="https://cdn.jsdelivr.net/npm/svg-map-drawer/dist/svg-map.umd.js"></script>
+```css
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
 
-<div id="svg-map-root"></div>
+### 4. Import the CSS file
 
-<script>
-  const regions = [
-    { id: "ID31", name: "Jakarta", color: "#10b981", value: 35000 },
-    { id: "ID32", name: "Jawa Barat", color: "#f59e0b", value: 25000 },
-  ];
+Make sure to import it in your `main.tsx` or `index.tsx`:
 
-  const svgMap = React.createElement(SVGMap, { 
-    svgUrl: "./indonesia.svg", 
-    regions 
-  });
-
-  ReactDOM.createRoot(document.getElementById("svg-map-root")).render(svgMap);
-</script>
+```tsx
+import './index.css';
 ```
 
 ---
 
+## 🚀 Usage
 
-## 🌐 CDN Usage (dengan React bundler)
-# 🌍 SVG Map Drawer Demo (Indonesia Map)
+### React Component (NPM)
 
-Demo sederhana untuk menampilkan dan mengonfigurasi peta interaktif **Indonesia** menggunakan **`svg-map-drawer`** via CDN.
+```jsx
+import SVGMap from 'svg-map-drawer';
 
-## 🚀 Getting Started
+const regions = [
+  { id: "ID31", name: "Jakarta", color: "#10b981", value: 35000 },
+  { id: "ID32", name: "West Java", color: "#f59e0b", value: 25000 },
+];
 
-Untuk menjalankan demo ini, cukup buat satu file HTML dan buka di browser.
+function App() {
+  return (
+    <SVGMap 
+      svgUrl="./indonesia.svg" 
+      regions={regions}
+    />
+  );
+}
+```
 
-### 📋 Prerequisites
-Pastikan koneksi internet aktif untuk memuat resource berikut:
-- **`tailwindcss`** (styling)
-- **`svg-map-drawer`** (library utama)
-- **`indonesia.svg`** (data SVG peta)
+### CDN Usage (Standalone)
 
----
-
-## 🧱 HTML Structure (`index.html`)
-
-Salin kode berikut ke dalam file `index.html`.
+Use this script in your HTML if you want to use it without a React bundler:
 
 ```html
 <!DOCTYPE html>
@@ -159,14 +138,14 @@ Salin kode berikut ke dalam file `index.html`.
   <script src="https://cdn.jsdelivr.net/npm/svg-map-drawer/dist-app/svg-map.bundle.umd.js"></script>
 
   <script>
-    // Contoh data provinsi Indonesia
+    // Example data for Indonesian provinces
     const regions = [
       { "id": "ID11", "name": "Aceh", "color": "#10b981", "value": 11500 },
-      { "id": "ID12", "name": "Sumatera Utara", "color": "#f59e0b", "value": 15000 },
-      { "id": "ID13", "name": "Sumatera Barat", "color": "#3b82f6", "value": 8000 },
+      { "id": "ID12", "name": "North Sumatra", "color": "#f59e0b", "value": 15000 },
+      { "id": "ID13", "name": "West Sumatra", "color": "#3b82f6", "value": 8000 },
       { "id": "ID14", "name": "Riau", "color": "#ef4444", "value": 7500 },
       { "id": "ID15", "name": "Jambi", "color": "#8b5cf6", "value": 5500 },
-      { "id": "ID16", "name": "Sumatera Selatan", "color": "#10b981", "value": 11000 },
+      { "id": "ID16", "name": "South Sumatra", "color": "#10b981", "value": 11000 },
     ];
 
     const container = document.getElementById("map-container");
@@ -185,15 +164,51 @@ Salin kode berikut ke dalam file `index.html`.
 
 ---
 
+## 🔧 API Reference
+
+### Props
+
+| Prop | Type | Required | Description |
+|------|------|----------|-------------|
+| `svgUrl` | `string` | Yes | URL to the SVG map file |
+| `regions` | `Array<Region>` | Yes | Array of region data objects |
+
+### Region Object
+
+```typescript
+{
+  id: string;      // Region ID (must match SVG path id)
+  name: string;    // Display name
+  color: string;   // Hex color code
+  value: number;   // Numeric value for tooltip
+}
+```
+
+---
 
 ## 🧠 Troubleshooting
 
-### ❌ Error: “A React Element from an older version of React was rendered”
-➡️ Terjadi karena versi React berbeda antara app dan library.  
-**Solusi:** Pastikan `react` dan `react-dom` hanya diinstal sekali (gunakan `npm ls react` untuk memeriksa).
+### ❌ Error: "A React Element from an older version of React was rendered"
 
-### ❌ Styling Tailwind tidak muncul
-➡️ Pastikan `node_modules/svg-map-drawer/dist/**/*` disertakan di `tailwind.config.js` → `content`.
+This occurs when there's a version mismatch between your app's React and the library's React.
+
+**Solution:** Ensure `react` and `react-dom` are only installed once. Check with:
+
+```bash
+npm ls react
+```
+
+If you see duplicates, remove them from the library's dependencies.
+
+### ❌ Tailwind styling not appearing
+
+Make sure `node_modules/svg-map-drawer/dist/**/*` is included in your `tailwind.config.js` → `content` array.
+
+### ❌ Map not rendering
+
+- Verify the SVG URL is correct and accessible
+- Check that region IDs in your data match the `id` attributes in the SVG file
+- Open browser console to check for error messages
 
 ---
 
@@ -203,7 +218,18 @@ MIT © [defazr](https://github.com/zedfar)
 
 ---
 
-## 🌍 Homepage
+## 🔗 Links
 
-🔗 [Demo & Dokumentasi](https://svg-map-drawer.netlify.app/)  
-🔗 [GitHub Repository](https://github.com/zedfar/svg-map-drawer)
+- 🌍 [Demo & Documentation](https://svg-map-drawer.netlify.app/)
+- 💻 [GitHub Repository](https://github.com/zedfar/svg-map-drawer)
+- 📦 [npm Package](https://www.npmjs.com/package/svg-map-drawer)
+
+---
+
+## 🤝 Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+## ⭐ Support
+
+If you find this project helpful, please give it a star on GitHub!

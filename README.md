@@ -18,26 +18,61 @@ Mudah dipakai, mendukung zoom, tooltip, dan custom warna setiap region.
 
 ---
 
-## 📦 Installation
-
-### NPM
+### 1️⃣ Install package utama
 ```bash
 npm install svg-map-drawer
 ```
 
+### 2️⃣ Install peer dependencies (wajib)
+Library ini membutuhkan `react`, `react-dom`, `lucide-react`, dan `tailwindcss`.
+
+Jika belum ada di proyekmu, jalankan:
 ```bash
-import SVGMap from "svg-map-drawer";
-import mapSVG from "./indonesia.svg?raw";
-
-function App() {
-  const regions = [
-    { id: "ID31", name: "Jakarta", color: "#10b981", value: 35000 },
-    { id: "ID32", name: "Jawa Barat", color: "#f59e0b", value: 25000 },
-  ];
-
-  return <SVGMap svgUrl={mapSVG} regions={regions} />;
-}
+npm install react react-dom lucide-react tailwindcss
 ```
+
+> 💡 Jika kamu sudah punya `react` dan `tailwindcss` di proyek, cukup pastikan versinya sesuai (`React >=18`, `Tailwind >=3`).
+
+---
+
+## ⚙️ Tailwind Setup (jika belum ada)
+
+Jika kamu belum mengatur Tailwind di proyekmu, lakukan langkah cepat ini:
+
+1. Inisialisasi Tailwind:
+   ```bash
+   npx tailwindcss init -p
+   ```
+
+2. Edit `tailwind.config.js`:
+   ```js
+   export default {
+     content: [
+       "./index.html",
+       "./src/**/*.{js,ts,jsx,tsx}",
+       "./node_modules/svg-map-drawer/dist/**/*.{js,ts,jsx,tsx}"
+     ],
+     theme: {
+       extend: {},
+     },
+     plugins: [],
+   }
+   ```
+
+3. Tambahkan direktif Tailwind ke file CSS utama (misalnya `src/index.css`):
+   ```css
+   @tailwind base;
+   @tailwind components;
+   @tailwind utilities;
+   ```
+
+4. Pastikan file CSS di-import di `main.tsx` atau `index.tsx`:
+   ```tsx
+   import './index.css';
+   ```
+
+---
+
 
 ### CDN
 Gunakan skrip berikut di HTML Anda:
@@ -46,25 +81,39 @@ Gunakan skrip berikut di HTML Anda:
 ```
 
 
-### CDN V2
-Gunakan skrip berikut di HTML Anda:
+## 🌐 CDN Usage (tanpa React bundler)
+
+Kalau kamu ingin langsung pakai dari browser tanpa setup React build:
+
 ```html
+<!-- React dan ReactDOM -->
 <script src="https://unpkg.com/react@18/umd/react.production.min.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.production.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/svg-map-drawer/dist-app/svg-map.bundle.umd.js"></script>
 
-<div id="map-container"></div>
+<!-- SVG Map Drawer -->
+<script src="https://cdn.jsdelivr.net/npm/svg-map-drawer/dist/svg-map.umd.js"></script>
+
+<div id="svg-map-root"></div>
 
 <script>
-  const regions = [{ id: "ID31", name: "Jakarta", color: "#10b981" }];
-  const root = ReactDOM.createRoot(document.getElementById("map-container"));
-  root.render(React.createElement(SVGMap, { svgUrl: "indonesia.svg", regions }));
-</script>
+  const regions = [
+    { id: "ID31", name: "Jakarta", color: "#10b981", value: 35000 },
+    { id: "ID32", name: "Jawa Barat", color: "#f59e0b", value: 25000 },
+  ];
 
+  const svgMap = React.createElement(SVGMap, { 
+    svgUrl: "./indonesia.svg", 
+    regions 
+  });
+
+  ReactDOM.createRoot(document.getElementById("svg-map-root")).render(svgMap);
+</script>
 ```
 
 ---
 
+
+## 🌐 CDN Usage (dengan React bundler)
 # 🌍 SVG Map Drawer Demo (Indonesia Map)
 
 Demo sederhana untuk menampilkan dan mengonfigurasi peta interaktif **Indonesia** menggunakan **`svg-map-drawer`** via CDN.
@@ -136,26 +185,25 @@ Salin kode berikut ke dalam file `index.html`.
 
 ---
 
+
+## 🧠 Troubleshooting
+
+### ❌ Error: “A React Element from an older version of React was rendered”
+➡️ Terjadi karena versi React berbeda antara app dan library.  
+**Solusi:** Pastikan `react` dan `react-dom` hanya diinstal sekali (gunakan `npm ls react` untuk memeriksa).
+
+### ❌ Styling Tailwind tidak muncul
+➡️ Pastikan `node_modules/svg-map-drawer/dist/**/*` disertakan di `tailwind.config.js` → `content`.
+
+---
+
 ## 📜 License
-<!-- MIT © [Your Name](https://github.com/yourusername) -->
-MIT License
 
-Copyright (c) 2025 zedfar <ulfar.far@gmail.com>
+MIT © [defazr](https://github.com/zedfar)
 
-Permission is hereby granted, free of charge, to any person obtaining a copy
-of this software and associated documentation files (the "Software"), to deal
-in the Software without restriction, including without limitation the rights
-to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-copies of the Software, and to permit persons to whom the Software is
-furnished to do so, subject to the following conditions:
+---
 
-The above copyright notice and this permission notice shall be included in all
-copies or substantial portions of the Software.
+## 🌍 Homepage
 
-THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-SOFTWARE.
+🔗 [Demo & Dokumentasi](https://svg-map-drawer.netlify.app/)  
+🔗 [GitHub Repository](https://github.com/zedfar/svg-map-drawer)

@@ -4,10 +4,31 @@
 Easy to use, supports zoom, tooltips, and custom colors for each region.
 
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/npm/svg-map-drawer@latest/dist/preview-img.png" alt="Preview" width="80%">
+  <img src="https://cdn.jsdelivr.net/npm/svg-map-drawer@latest/dist/preview-img-1.png" alt="Preview" width="80%">
+</p>
+
+<p align="center">
+  <img src="https://cdn.jsdelivr.net/npm/svg-map-drawer@latest/dist/preview-img-2.png" alt="Preview" width="80%">
 </p>
 
 ---
+
+
+## SVG Image List
+A list of SVG maps with direct links.
+
+### List
+1. **Indonesia Map**
+   * Direct link: [https://cdn.jsdelivr.net/npm/svg-map-drawer/dist/indonesia.svg](https://cdn.jsdelivr.net/npm/svg-map-drawer/dist/indonesia.svg)
+2. **World Map**
+   * Direct link: [https://cdn.jsdelivr.net/npm/svg-map-drawer/dist/world.svg](https://cdn.jsdelivr.net/npm/svg-map-drawer/dist/world.svg)
+
+### Notes
+* Both files are served from the `jsdelivr` CDN (package `svg-map-drawer`). Make sure your internet connection or hosting allows loading from this CDN.
+* If you want to store local copies, download the SVG files and include them in your repository, then update the `src`/link paths accordingly.
+
+---
+
 
 ## ✨ Features
 
@@ -29,12 +50,12 @@ npm install svg-map-drawer
 
 ### 2️⃣ Install peer dependencies (required)
 
-This library requires `react`, `react-dom`, `lucide-react`, and `tailwindcss`.
+This library requires `react`, `react-dom`, and `tailwindcss`.
 
 If you don't have them in your project yet, run:
 
 ```bash
-npm install react react-dom lucide-react tailwindcss
+npm install react react-dom tailwindcss
 ```
 
 > 💡 If you already have `react` and `tailwindcss` in your project, just make sure the versions are compatible (`React >=18`, `Tailwind >=3`).

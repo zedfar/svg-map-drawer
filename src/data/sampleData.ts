@@ -1,5 +1,4 @@
 import { MapRegion } from '../types/map';
-import svgUrl from './id.svg';
 
 export const sampleRegions: MapRegion[] = [
   { "id": "ID11", "name": "Aceh", "color": "#10b981", "value": 11500 },
@@ -42,14 +41,1023 @@ export const sampleRegions: MapRegion[] = [
   { "id": "ID96", "name": "Papua Barat Daya", "color": "#3b82f6", "value": 2200 }
 ];
 
-export const sampleSVG = svgUrl
+export const sampleWorld: MapRegion[] = [
+  {
+    "id": "AF",
+    "name": "Afghanistan",
+    "color": "#90B0D1",
+    "value": 45
+  },
+  {
+    "id": "AL",
+    "name": "Albania",
+    "color": "#A0B8D9",
+    "value": 55
+  },
+  {
+    "id": "DZ",
+    "name": "Algeria",
+    "color": "#88ACCC",
+    "value": 41
+  },
+  {
+    "id": "AI",
+    "name": "Anguilla",
+    "color": "#6599C2",
+    "value": 24
+  },
+  {
+    "id": "AM",
+    "name": "Armenia",
+    "color": "#98B4D6",
+    "value": 50
+  },
+  {
+    "id": "AW",
+    "name": "Aruba",
+    "color": "#B0C4E0",
+    "value": 68
+  },
+  {
+    "id": "AT",
+    "name": "Austria",
+    "color": "#7FAAD5",
+    "value": 37
+  },
+  {
+    "id": "BH",
+    "name": "Bahrain",
+    "color": "#9BB6D7",
+    "value": 52
+  },
+  {
+    "id": "BD",
+    "name": "Bangladesh",
+    "color": "#83A9C8",
+    "value": 38
+  },
+  {
+    "id": "BB",
+    "name": "Barbados",
+    "color": "#7FAAD5",
+    "value": 37
+  },
+  {
+    "id": "BY",
+    "name": "Belarus",
+    "color": "#4A82B3",
+    "value": 11
+  },
+  {
+    "id": "BE",
+    "name": "Belgium",
+    "color": "#93B2D3",
+    "value": 48
+  },
+  {
+    "id": "BZ",
+    "name": "Belize",
+    "color": "#689CC5",
+    "value": 26
+  },
+  {
+    "id": "BJ",
+    "name": "Benin",
+    "color": "#9EB7D8",
+    "value": 54
+  },
+  {
+    "id": "BM",
+    "name": "Bermuda",
+    "color": "#7AA6D2",
+    "value": 34
+  },
+  {
+    "id": "BT",
+    "name": "Bhutan",
+    "color": "#4D84B5",
+    "value": 13
+  },
+  {
+    "id": "BO",
+    "name": "Bolivia",
+    "color": "#5D92BD",
+    "value": 20
+  },
+  {
+    "id": "BA",
+    "name": "Bosnia and Herzegovina",
+    "color": "#B8CCEB",
+    "value": 75
+  },
+  {
+    "id": "BW",
+    "name": "Botswana",
+    "color": "#9BB6D7",
+    "value": 52
+  },
+  {
+    "id": "BR",
+    "name": "Brazil",
+    "color": "#5F94BE",
+    "value": 21
+  },
+  {
+    "id": "VG",
+    "name": "British Virgin Islands",
+    "color": "#B4C8E2",
+    "value": 71
+  },
+  {
+    "id": "BN",
+    "name": "Brunei Darussalam",
+    "color": "#7BA7D3",
+    "value": 35
+  },
+  {
+    "id": "BG",
+    "name": "Bulgaria",
+    "color": "#90B0D1",
+    "value": 45
+  },
+  {
+    "id": "BF",
+    "name": "Burkina Faso",
+    "color": "#437BB0",
+    "value": 6
+  },
+  {
+    "id": "BI",
+    "name": "Burundi",
+    "color": "#9AB5D7",
+    "value": 51
+  },
+  {
+    "id": "KH",
+    "name": "Cambodia",
+    "color": "#B2C7E1",
+    "value": 69
+  },
+  {
+    "id": "CM",
+    "name": "Cameroon",
+    "color": "#7DA8D4",
+    "value": 36
+  },
+  {
+    "id": "CF",
+    "name": "Central African Republic",
+    "color": "#7DA8D4",
+    "value": 36
+  },
+  {
+    "id": "TD",
+    "name": "Chad",
+    "color": "#5B90BB",
+    "value": 19
+  },
+  {
+    "id": "CO",
+    "name": "Colombia",
+    "color": "#76A3D0",
+    "value": 31
+  },
+  {
+    "id": "CR",
+    "name": "Costa Rica",
+    "color": "#79A5D1",
+    "value": 33
+  },
+  {
+    "id": "HR",
+    "name": "Croatia",
+    "color": "#6D9EC8",
+    "value": 28
+  },
+  {
+    "id": "CU",
+    "name": "Cuba",
+    "color": "#76A3D0",
+    "value": 31
+  },
+  {
+    "id": "CW",
+    "name": "Curaçao",
+    "color": "#78A4D1",
+    "value": 32
+  },
+  {
+    "id": "CZ",
+    "name": "Czech Republic",
+    "color": "#A5BBDC",
+    "value": 59
+  },
+  {
+    "id": "CI",
+    "name": "Côte d'Ivoire",
+    "color": "#81A8D3",
+    "value": 37
+  },
+  {
+    "id": "KP",
+    "name": "Dem. Rep. Korea",
+    "color": "#B3C8E1",
+    "value": 70
+  },
+  {
+    "id": "CD",
+    "name": "Democratic Republic of the Congo",
+    "color": "#71A0CA",
+    "value": 29
+  },
+  {
+    "id": "DJ",
+    "name": "Djibouti",
+    "color": "#7FAAD5",
+    "value": 37
+  },
+  {
+    "id": "DM",
+    "name": "Dominica",
+    "color": "#5F94BE",
+    "value": 21
+  },
+  {
+    "id": "DO",
+    "name": "Dominican Republic",
+    "color": "#5288B8",
+    "value": 15
+  },
+  {
+    "id": "EC",
+    "name": "Ecuador",
+    "color": "#A9C1DE",
+    "value": 64
+  },
+  {
+    "id": "EG",
+    "name": "Egypt",
+    "color": "#83A9C8",
+    "value": 38
+  },
+  {
+    "id": "SV",
+    "name": "El Salvador",
+    "color": "#C3D3F0",
+    "value": 85
+  },
+  {
+    "id": "GQ",
+    "name": "Equatorial Guinea",
+    "color": "#98B4D6",
+    "value": 50
+  },
+  {
+    "id": "ER",
+    "name": "Eritrea",
+    "color": "#4A82B3",
+    "value": 11
+  },
+  {
+    "id": "EE",
+    "name": "Estonia",
+    "color": "#7BA7D3",
+    "value": 35
+  },
+  {
+    "id": "ET",
+    "name": "Ethiopia",
+    "color": "#86ABC9",
+    "value": 40
+  },
+  {
+    "id": "FI",
+    "name": "Finland",
+    "color": "#9EB7D8",
+    "value": 54
+  },
+  {
+    "id": "GF",
+    "name": "French Guiana",
+    "color": "#74A2CF",
+    "value": 30
+  },
+  {
+    "id": "GA",
+    "name": "Gabon",
+    "color": "#6599C2",
+    "value": 24
+  },
+  {
+    "id": "GE",
+    "name": "Georgia",
+    "color": "#98B4D6",
+    "value": 50
+  },
+  {
+    "id": "DE",
+    "name": "Germany",
+    "color": "#A0B8D9",
+    "value": 55
+  },
+  {
+    "id": "GH",
+    "name": "Ghana",
+    "color": "#B8CCEB",
+    "value": 75
+  },
+  {
+    "id": "GL",
+    "name": "Greenland",
+    "color": "#6397C1",
+    "value": 23
+  },
+  {
+    "id": "GD",
+    "name": "Grenada",
+    "color": "#9EB7D8",
+    "value": 54
+  },
+  {
+    "id": "GU",
+    "name": "Guam",
+    "color": "#A5BBDC",
+    "value": 59
+  },
+  {
+    "id": "GT",
+    "name": "Guatemala",
+    "color": "#578CB9",
+    "value": 17
+  },
+  {
+    "id": "GN",
+    "name": "Guinea",
+    "color": "#6E9FC9",
+    "value": 28
+  },
+  {
+    "id": "GW",
+    "name": "Guinea-Bissau",
+    "color": "#A7BFE0",
+    "value": 62
+  },
+  {
+    "id": "GY",
+    "name": "Guyana",
+    "color": "#558AB7",
+    "value": 16
+  },
+  {
+    "id": "HT",
+    "name": "Haiti",
+    "color": "#5288B8",
+    "value": 15
+  },
+  {
+    "id": "HN",
+    "name": "Honduras",
+    "color": "#98B4D6",
+    "value": 50
+  },
+  {
+    "id": "HU",
+    "name": "Hungary",
+    "color": "#76A3D0",
+    "value": 31
+  },
+  {
+    "id": "IS",
+    "name": "Iceland",
+    "color": "#457FB1",
+    "value": 8
+  },
+  {
+    "id": "IN",
+    "name": "India",
+    "color": "#B8CCEB",
+    "value": 75
+  },
+  {
+    "id": "IR",
+    "name": "Iran",
+    "color": "#5F94BE",
+    "value": 21
+  },
+  {
+    "id": "IQ",
+    "name": "Iraq",
+    "color": "#B4C8E2",
+    "value": 71
+  },
+  {
+    "id": "IE",
+    "name": "Ireland",
+    "color": "#A2B9DA",
+    "value": 57
+  },
+  {
+    "id": "IL",
+    "name": "Israel",
+    "color": "#7DA8D4",
+    "value": 36
+  },
+  {
+    "id": "JM",
+    "name": "Jamaica",
+    "color": "#679BC4",
+    "value": 25
+  },
+  {
+    "id": "JO",
+    "name": "Jordan",
+    "color": "#7BA7D3",
+    "value": 35
+  },
+  {
+    "id": "KZ",
+    "name": "Kazakhstan",
+    "color": "#84AAC9",
+    "value": 39
+  },
+  {
+    "id": "KE",
+    "name": "Kenya",
+    "color": "#5B90BB",
+    "value": 19
+  },
+  {
+    "id": "XK",
+    "name": "Kosovo",
+    "color": "#A0B8D9",
+    "value": 55
+  },
+  {
+    "id": "KW",
+    "name": "Kuwait",
+    "color": "#C7D6F3",
+    "value": 89
+  },
+  {
+    "id": "KG",
+    "name": "Kyrgyzstan",
+    "color": "#81A8D3",
+    "value": 37
+  },
+  {
+    "id": "LA",
+    "name": "Lao PDR",
+    "color": "#9BB6D7",
+    "value": 52
+  },
+  {
+    "id": "LV",
+    "name": "Latvia",
+    "color": "#C3D3F0",
+    "value": 85
+  },
+  {
+    "id": "LB",
+    "name": "Lebanon",
+    "color": "#7DA8D4",
+    "value": 36
+  },
+  {
+    "id": "LS",
+    "name": "Lesotho",
+    "color": "#B3C8E1",
+    "value": 70
+  },
+  {
+    "id": "LR",
+    "name": "Liberia",
+    "color": "#74A2CF",
+    "value": 30
+  },
+  {
+    "id": "LY",
+    "name": "Libya",
+    "color": "#5D92BD",
+    "value": 20
+  },
+  {
+    "id": "LT",
+    "name": "Lithuania",
+    "color": "#9AB5D7",
+    "value": 51
+  },
+  {
+    "id": "LU",
+    "name": "Luxembourg",
+    "color": "#5288B8",
+    "value": 15
+  },
+  {
+    "id": "MK",
+    "name": "Macedonia",
+    "color": "#6599C2",
+    "value": 24
+  },
+  {
+    "id": "MG",
+    "name": "Madagascar",
+    "color": "#689CC5",
+    "value": 26
+  },
+  {
+    "id": "MW",
+    "name": "Malawi",
+    "color": "#4A82B3",
+    "value": 11
+  },
+  {
+    "id": "MV",
+    "name": "Maldives",
+    "color": "#A0B8D9",
+    "value": 55
+  },
+  {
+    "id": "ML",
+    "name": "Mali",
+    "color": "#A2B9DA",
+    "value": 57
+  },
+  {
+    "id": "MH",
+    "name": "Marshall Islands",
+    "color": "#86ABC9",
+    "value": 40
+  },
+  {
+    "id": "MQ",
+    "name": "Martinique",
+    "color": "#78A4D1",
+    "value": 32
+  },
+  {
+    "id": "MR",
+    "name": "Mauritania",
+    "color": "#4D84B5",
+    "value": 13
+  },
+  {
+    "id": "YT",
+    "name": "Mayotte",
+    "color": "#86ABC9",
+    "value": 40
+  },
+  {
+    "id": "MX",
+    "name": "Mexico",
+    "color": "#B0C4E0",
+    "value": 68
+  },
+  {
+    "id": "MD",
+    "name": "Moldova",
+    "color": "#6E9FC9",
+    "value": 28
+  },
+  {
+    "id": "MN",
+    "name": "Mongolia",
+    "color": "#4F86B6",
+    "value": 14
+  },
+  {
+    "id": "ME",
+    "name": "Montenegro",
+    "color": "#5C91BC",
+    "value": 20
+  },
+  {
+    "id": "MS",
+    "name": "Montserrat",
+    "color": "#5D92BD",
+    "value": 20
+  },
+  {
+    "id": "MA",
+    "name": "Morocco",
+    "color": "#B4C8E2",
+    "value": 71
+  },
+  {
+    "id": "MZ",
+    "name": "Mozambique",
+    "color": "#C8D8F4",
+    "value": 92
+  },
+  {
+    "id": "MM",
+    "name": "Myanmar",
+    "color": "#6C9DC7",
+    "value": 27
+  },
+  {
+    "id": "NA",
+    "name": "Namibia",
+    "color": "#98B4D6",
+    "value": 50
+  },
+  {
+    "id": "NR",
+    "name": "Nauru",
+    "color": "#90B0D1",
+    "value": 45
+  },
+  {
+    "id": "NP",
+    "name": "Nepal",
+    "color": "#4A82B3",
+    "value": 11
+  },
+  {
+    "id": "NL",
+    "name": "Netherlands",
+    "color": "#A2B9DA",
+    "value": 57
+  },
+  {
+    "id": "BQBO",
+    "name": "Netherlands",
+    "color": "#74A2CF",
+    "value": 30
+  },
+  {
+    "id": "NI",
+    "name": "Nicaragua",
+    "color": "#B4C8E2",
+    "value": 71
+  },
+  {
+    "id": "NE",
+    "name": "Niger",
+    "color": "#B4C8E2",
+    "value": 71
+  },
+  {
+    "id": "NG",
+    "name": "Nigeria",
+    "color": "#7BA7D3",
+    "value": 35
+  },
+  {
+    "id": "PK",
+    "name": "Pakistan",
+    "color": "#C3D3F0",
+    "value": 85
+  },
+  {
+    "id": "PW",
+    "name": "Palau",
+    "color": "#4A82B3",
+    "value": 11
+  },
+  {
+    "id": "PS",
+    "name": "Palestine",
+    "color": "#4F86B6",
+    "value": 14
+  },
+  {
+    "id": "PA",
+    "name": "Panama",
+    "color": "#9AB5D7",
+    "value": 51
+  },
+  {
+    "id": "PY",
+    "name": "Paraguay",
+    "color": "#5288B8",
+    "value": 15
+  },
+  {
+    "id": "PE",
+    "name": "Peru",
+    "color": "#98B4D6",
+    "value": 50
+  },
+  {
+    "id": "PL",
+    "name": "Poland",
+    "color": "#5F94BE",
+    "value": 21
+  },
+  {
+    "id": "PT",
+    "name": "Portugal",
+    "color": "#5D92BD",
+    "value": 20
+  },
+  {
+    "id": "QA",
+    "name": "Qatar",
+    "color": "#B8CCEB",
+    "value": 75
+  },
+  {
+    "id": "CG",
+    "name": "Republic of Congo",
+    "color": "#84AAC9",
+    "value": 39
+  },
+  {
+    "id": "KR",
+    "name": "Republic of Korea",
+    "color": "#76A3D0",
+    "value": 31
+  },
+  {
+    "id": "RE",
+    "name": "Reunion",
+    "color": "#A0B8D9",
+    "value": 55
+  },
+  {
+    "id": "RO",
+    "name": "Romania",
+    "color": "#5288B8",
+    "value": 15
+  },
+  {
+    "id": "RW",
+    "name": "Rwanda",
+    "color": "#9AB5D7",
+    "value": 51
+  },
+  {
+    "id": "BQSA",
+    "name": "Saba (Netherlands)",
+    "color": "#7BA7D3",
+    "value": 35
+  },
+  {
+    "id": "LC",
+    "name": "Saint Lucia",
+    "color": "#A0B8D9",
+    "value": 55
+  },
+  {
+    "id": "VC",
+    "name": "Saint Vincent and the Grenadines",
+    "color": "#B0C4E0",
+    "value": 68
+  },
+  {
+    "id": "BL",
+    "name": "Saint-Barthélemy",
+    "color": "#A0B8D9",
+    "value": 55
+  },
+  {
+    "id": "MF",
+    "name": "Saint-Martin",
+    "color": "#A2B9DA",
+    "value": 57
+  },
+  {
+    "id": "SA",
+    "name": "Saudi Arabia",
+    "color": "#B4C8E2",
+    "value": 71
+  },
+  {
+    "id": "SN",
+    "name": "Senegal",
+    "color": "#A7BFE0",
+    "value": 62
+  },
+  {
+    "id": "RS",
+    "name": "Serbia",
+    "color": "#4A82B3",
+    "value": 11
+  },
+  {
+    "id": "SL",
+    "name": "Sierra Leone",
+    "color": "#7AA6D2",
+    "value": 34
+  },
+  {
+    "id": "SX",
+    "name": "Sint Maarten",
+    "color": "#B2C7E1",
+    "value": 69
+  },
+  {
+    "id": "SK",
+    "name": "Slovakia",
+    "color": "#6397C1",
+    "value": 23
+  },
+  {
+    "id": "SI",
+    "name": "Slovenia",
+    "color": "#7BA7D3",
+    "value": 35
+  },
+  {
+    "id": "SO",
+    "name": "Somalia",
+    "color": "#6D9EC8",
+    "value": 28
+  },
+  {
+    "id": "ZA",
+    "name": "South Africa",
+    "color": "#558AB7",
+    "value": 16
+  },
+  {
+    "id": "SS",
+    "name": "South Sudan",
+    "color": "#A5BBDC",
+    "value": 59
+  },
+  {
+    "id": "ES",
+    "name": "Spain",
+    "color": "#76A3D0",
+    "value": 31
+  },
+  {
+    "id": "LK",
+    "name": "Sri Lanka",
+    "color": "#90B0D1",
+    "value": 45
+  },
+  {
+    "id": "BQSE",
+    "name": "St. Eustatius (Netherlands)",
+    "color": "#437BB0",
+    "value": 6
+  },
+  {
+    "id": "SD",
+    "name": "Sudan",
+    "color": "#A7BFE0",
+    "value": 62
+  },
+  {
+    "id": "SR",
+    "name": "Suriname",
+    "color": "#B8CCEB",
+    "value": 75
+  },
+  {
+    "id": "SZ",
+    "name": "Swaziland",
+    "color": "#9EB7D8",
+    "value": 54
+  },
+  {
+    "id": "SE",
+    "name": "Sweden",
+    "color": "#79A5D1",
+    "value": 33
+  },
+  {
+    "id": "CH",
+    "name": "Switzerland",
+    "color": "#4A82B3",
+    "value": 11
+  },
+  {
+    "id": "SY",
+    "name": "Syria",
+    "color": "#6599C2",
+    "value": 24
+  },
+  {
+    "id": "TW",
+    "name": "Taiwan",
+    "color": "#B2C7E1",
+    "value": 69
+  },
+  {
+    "id": "TJ",
+    "name": "Tajikistan",
+    "color": "#C8D8F4",
+    "value": 92
+  },
+  {
+    "id": "TZ",
+    "name": "Tanzania",
+    "color": "#B8CCEB",
+    "value": 75
+  },
+  {
+    "id": "TH",
+    "name": "Thailand",
+    "color": "#7BA7D3",
+    "value": 35
+  },
+  {
+    "id": "GM",
+    "name": "The Gambia",
+    "color": "#7BA7D3",
+    "value": 35
+  },
+  {
+    "id": "TL",
+    "name": "Timor-Leste",
+    "color": "#7FAAD5",
+    "value": 37
+  },
+  {
+    "id": "TG",
+    "name": "Togo",
+    "color": "#A0B8D9",
+    "value": 55
+  },
+  {
+    "id": "TN",
+    "name": "Tunisia",
+    "color": "#93B2D3",
+    "value": 48
+  },
+  {
+    "id": "TM",
+    "name": "Turkmenistan",
+    "color": "#5288B8",
+    "value": 15
+  },
+  {
+    "id": "TV",
+    "name": "Tuvalu",
+    "color": "#C3D3F0",
+    "value": 85
+  },
+  {
+    "id": "UG",
+    "name": "Uganda",
+    "color": "#4A82B3",
+    "value": 11
+  },
+  {
+    "id": "UA",
+    "name": "Ukraine",
+    "color": "#B4C8E2",
+    "value": 71
+  },
+  {
+    "id": "AE",
+    "name": "United Arab Emirates",
+    "color": "#93B2D3",
+    "value": 48
+  },
+  {
+    "id": "UY",
+    "name": "Uruguay",
+    "color": "#B2C7E1",
+    "value": 69
+  },
+  {
+    "id": "UZ",
+    "name": "Uzbekistan",
+    "color": "#6397C1",
+    "value": 23
+  },
+  {
+    "id": "VE",
+    "name": "Venezuela",
+    "color": "#84AAC9",
+    "value": 39
+  },
+  {
+    "id": "VN",
+    "name": "Vietnam",
+    "color": "#5B90BB",
+    "value": 19
+  },
+  {
+    "id": "EH",
+    "name": "Western Sahara",
+    "color": "#81A8D3",
+    "value": 37
+  },
+  {
+    "id": "YE",
+    "name": "Yemen",
+    "color": "#A7BFE0",
+    "value": 62
+  },
+  {
+    "id": "ZM",
+    "name": "Zambia",
+    "color": "#C7D6F3",
+    "value": 89
+  },
+  {
+    "id": "ZW",
+    "name": "Zimbabwe",
+    "color": "#A9C1DE",
+    "value": 64
+  }
+];
 
-// export const sampleSVG = `
-// <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 600" width="800" height="600">
-//   <rect id="region-1" x="300" y="50" width="200" height="150" fill="#cccccc" />
-//   <path id="region-2" d="M 100 400 L 250 300 L 350 450 L 150 500 Z" fill="#cccccc" />
-//   <circle id="region-3" cx="650" cy="300" r="100" fill="#cccccc" />
-//   <polygon id="region-4" points="100,100 200,80 250,180 150,200" fill="#cccccc" />
-//   <ellipse id="region-5" cx="400" cy="400" rx="120" ry="80" fill="#cccccc" />
-// </svg>
-// `;
+
+
+

@@ -2,19 +2,34 @@ import { useState } from 'react';
 import { Map, Upload, FileJson, Play } from 'lucide-react';
 import SVGMap from './components/SVGMap';
 import Legend from './components/Legend';
-import { sampleRegions } from './data/sampleData';
+import { sampleRegions, sampleWorld } from './data/sampleData';
 import { MapRegion } from './types/map';
-import fileSVG from './data/indonesia.svg?raw';
+import indonesiaSVG from '../public/indonesia.svg?raw';
+import worldSVG from '../public/world.svg?raw';
+
+
 
 function App() {
-  const [regions, setRegions] = useState<MapRegion[]>(sampleRegions);
-  const [svgContent, setSvgContent] = useState<string>(fileSVG);
+  const [availableSvgs] = useState(() => [
+    { id: 'indonesia', name: 'Indonesia Map', file: indonesiaSVG, data: sampleRegions },
+    { id: 'world', name: 'World Map', file: worldSVG, data: sampleWorld },
+  ]);
+  const [regions, setRegions] = useState<MapRegion[]>([]);
+  const [svgContent, setSvgContent] = useState<string>('');
   const [svgUrl, setSvgUrl] = useState<string>('');
   const [tempSvgUrl, setTempSvgUrl] = useState<string>('');
-  const [tempSvgFile, setTempSvgFile] = useState<string>(fileSVG);
-  const [jsonInput, setJsonInput] = useState<string>(JSON.stringify(sampleRegions, null, 2));
+  const [tempSvgFile, setTempSvgFile] = useState<string>('');
+  const [selectedSvg, setSelectedSvg] = useState<string>('');
+  const [jsonInput, setJsonInput] = useState<string>('');
+  // JSON.stringify(sampleRegions, null, 2)
 
   const [error, setError] = useState<string>('');
+
+  const [worldData] = useState<MapRegion[]>(() => sampleWorld);
+  const [svgContentWolrd] = useState<string>(() => worldSVG);
+
+  const [indonesiaData] = useState<MapRegion[]>(() => sampleRegions);
+  const [svgContentIndonesia] = useState<string>(() => indonesiaSVG);
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -24,8 +39,25 @@ function App() {
         const content = e.target?.result as string;
         setTempSvgFile(content);
         setTempSvgUrl('');
+        setSelectedSvg('');
       };
       reader.readAsText(file);
+    }
+  };
+
+  const handleSvgSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
+    const svgId = event.target.value;
+    setSelectedSvg(svgId);
+    setSvgContent("")
+    setSvgUrl("")
+    setJsonInput("")
+    if (svgId) {
+      const selected = availableSvgs.find(svg => svg.id === svgId);
+      if (selected) {
+        setTempSvgFile(selected.file);
+        setTempSvgUrl('');
+        setJsonInput(JSON.stringify(selected.data, null, 2))
+      }
     }
   };
 
@@ -107,6 +139,21 @@ function App() {
               <div className="flex flex-col gap-4">
                 <div>
                   <label className="block text-sm font-medium text-slate-700 mb-2">
+                    Select Predefined SVG
+                  </label>
+                  <select
+                    value={selectedSvg}
+                    onChange={handleSvgSelect}
+                    className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all bg-white"
+                  >
+                    <option value="">-- Choose a map --</option>
+                    {availableSvgs.map(svg => (
+                      <option key={svg.id} value={svg.id}>{svg.name}</option>
+                    ))}
+                  </select>
+                </div>
+                <div>
+                  <label className="block text-sm font-medium text-slate-700 mb-2">
                     SVG URL
                   </label>
                   <input
@@ -169,26 +216,72 @@ function App() {
             </div>
           </div>
 
+
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            {svgContent && (
+              <>
+                <div className="lg:col-span-3">
+                  <div className="h-[600px]">
+                    <SVGMap
+                      regions={regions}
+                      svgUrl={svgUrl}
+                      svgContent={svgContent}
+                    />
+                  </div>
+
+                  <div className="bg-white rounded-lg shadow-sm p-4 mt-4">
+                    <p className="text-sm text-slate-600">
+                      <strong>Tips:</strong> Hover over regions to see details. Click to zoom in/out.
+                      Ensure your SVG elements have IDs matching the region data.
+                    </p>
+                  </div>
+                </div>
+
+                <div className="lg:col-span-1">
+                  <div className="h-[600px]">
+                    <Legend regions={regions} />
+                  </div>
+                </div>
+              </>
+            )}
+          </div>
+
+
+
+
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
             <div className="lg:col-span-3">
               <div className="h-[600px]">
                 <SVGMap
-                  regions={regions}
-                  svgUrl={svgUrl}
-                  svgContent={svgContent}
+                  regions={indonesiaData}
+                  svgUrl={''}
+                  svgContent={svgContentIndonesia}
                 />
-              </div>
-
-              <div className="bg-white rounded-lg shadow-sm p-4 mt-4">
-                <p className="text-sm text-slate-600">
-                  <strong>Tips:</strong> Hover over regions to see details. Click to zoom in/out.
-                  Ensure your SVG elements have IDs matching the region data.
-                </p>
               </div>
             </div>
 
             <div className="lg:col-span-1">
-              <Legend regions={regions} />
+              <div className="h-[600px]">
+                <Legend regions={indonesiaData} />
+              </div>
+            </div>
+          </div>
+
+          <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
+            <div className="lg:col-span-3">
+              <div className="h-[800px]">
+                <SVGMap
+                  regions={worldData}
+                  svgUrl={''}
+                  svgContent={svgContentWolrd}
+                />
+              </div>
+            </div>
+
+            <div className="lg:col-span-1">
+              <div className="h-[800px]">
+                <Legend regions={worldData} />
+              </div>
             </div>
           </div>
         </div>

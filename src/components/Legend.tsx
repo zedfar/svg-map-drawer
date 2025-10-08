@@ -6,9 +6,9 @@ interface LegendProps {
 
 export default function Legend({ regions }: LegendProps) {
   return (
-    <div className="bg-white rounded-lg shadow-lg p-6">
-      <h3 className="text-lg font-bold mb-4 text-slate-800">Regions</h3>
-      <div className="space-y-2 max-h-96 overflow-y-auto">
+    <div className="bg-white rounded-lg shadow-lg p-2 relative h-full">
+      {/* <h3 className="text-lg font-bold mb-4 text-slate-800">Legends</h3> */}
+      <div className="space-y-0 min-h-96 max-h-[38rem] relative h-full overflow-y-auto">
         {regions.map(region => (
           <div key={region.id} className="flex items-center gap-3 p-2 hover:bg-slate-50 rounded transition-colors">
             <div

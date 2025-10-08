@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
-import { Home, Plus, Minus } from 'lucide-react';
 import { MapRegion } from '../types/map';
 import Tooltip from './Tooltip';
+import { IconHome, IconMinus, IconPlus } from './Icon';
 
 interface SVGMapProps {
   regions: MapRegion[];
@@ -75,6 +75,7 @@ export default function SVGMap({ regions, svgUrl, svgContent }: SVGMapProps) {
             setZoomedRegion(null);
             resetZoom();
           } else {
+            // resetZoom()
             setZoomedRegion(region.id);
             zoomToElement(element as SVGElement, region);
           }
@@ -167,8 +168,8 @@ export default function SVGMap({ regions, svgUrl, svgContent }: SVGMapProps) {
     };
 
     const scale = Math.min(
-      currentViewBox.width / (bbox.width * 1.5),
-      currentViewBox.height / (bbox.height * 1.5)
+      currentViewBox.width / (bbox.width * 1.9),
+      currentViewBox.height / (bbox.height * 1.9)
     );
 
     const newWidth = currentViewBox.width / scale;
@@ -177,13 +178,10 @@ export default function SVGMap({ regions, svgUrl, svgContent }: SVGMapProps) {
     const y = bbox.y + bbox.height / 2 - newHeight / 2;
 
     const toViewBox = { x, y, width: newWidth, height: newHeight };
-    // svgElement.setAttribute('viewBox', `${x} ${y} ${newWidth} ${newHeight}`);
-    // setZoomLevel(scale);
 
     animateViewBox(fromViewBox, toViewBox, 600, () => {
       setZoomLevel(scale);
     });
-
 
     const centerX = bbox.x + bbox.width / 2;
     const centerY = bbox.y + bbox.height / 2;
@@ -203,10 +201,6 @@ export default function SVGMap({ regions, svgUrl, svgContent }: SVGMapProps) {
 
     const nameSpan = document.createElementNS('http://www.w3.org/2000/svg', 'tspan');
     nameSpan.textContent = region.name;
-
-    // pecah teks panjang berdasarkan spasi
-    // const words = nameSpan.textContent.split(/\s+/);
-
 
     nameSpan.setAttribute('x', centerX.toString());
     nameSpan.setAttribute('dy', '0');
@@ -235,10 +229,6 @@ export default function SVGMap({ regions, svgUrl, svgContent }: SVGMapProps) {
     labelsGroup.innerHTML = '';
 
     if (originalViewBox) {
-      // svgElement.setAttribute('viewBox', originalViewBox);
-      // setZoomLevel(1);
-      // setZoomedRegion(null);
-
       const currentViewBox = svgElement.viewBox.baseVal;
       const fromViewBox = {
         x: currentViewBox.x,
@@ -271,11 +261,6 @@ export default function SVGMap({ regions, svgUrl, svgContent }: SVGMapProps) {
     const currentViewBox = svgElement.viewBox.baseVal;
     const scale = 1.3;
 
-    // const newWidth = viewBox.width / scale;
-    // const newHeight = viewBox.height / scale;
-    // const x = viewBox.x + (viewBox.width - newWidth) / 2;
-    // const y = viewBox.y + (viewBox.height - newHeight) / 2;
-
     const fromViewBox = {
       x: currentViewBox.x,
       y: currentViewBox.y,
@@ -290,13 +275,9 @@ export default function SVGMap({ regions, svgUrl, svgContent }: SVGMapProps) {
 
     const toViewBox = { x, y, width: newWidth, height: newHeight };
 
-    // svgElement.setAttribute('viewBox', `${x} ${y} ${newWidth} ${newHeight}`);
-    // setZoomLevel(prev => prev * scale);
-
     const newZoomLevel = zoomLevel * scale;
     animateViewBox(fromViewBox, toViewBox, 300, () => {
       setZoomLevel(newZoomLevel);
-      // if (newZoomLevel > 1.5) showLabels();
     });
   };
 
@@ -336,12 +317,7 @@ export default function SVGMap({ regions, svgUrl, svgContent }: SVGMapProps) {
 
     animateViewBox(fromViewBox, toViewBox, 300, () => {
       setZoomLevel(newZoomLevel);
-      // if (newZoomLevel <= 1.5) hideLabels();
     });
-
-    // svgElement.setAttribute('viewBox', `${x} ${y} ${newWidth} ${newHeight}`);
-
-    // setZoomLevel(newZoomLevel);
   };
 
 
@@ -368,24 +344,21 @@ export default function SVGMap({ regions, svgUrl, svgContent }: SVGMapProps) {
             className="p-3 bg-white rounded-lg shadow-lg hover:bg-slate-100 transition-colors border border-slate-200"
             title="Reset Zoom"
           >
-            <Home className="w-5 h-5 text-slate-700" />
-            {/* <button><IconHome className="w-5 h-5 text-slate-700" /></button> */}
+            <IconHome className="w-5 h-5 text-slate-700" />
           </button>
           <button
             onClick={zoomIn}
             className="p-3 bg-white rounded-lg shadow-lg hover:bg-slate-100 transition-colors border border-slate-200"
             title="Zoom In"
           >
-            <Plus className="w-5 h-5 text-slate-700" />
-            {/* <button><IconPlus className="w-5 h-5 text-slate-700" /></button> */}
+            <IconPlus className="w-5 h-5 text-slate-700" />
           </button>
           <button
             onClick={zoomOut}
             className="p-3 bg-white rounded-lg shadow-lg hover:bg-slate-100 transition-colors border border-slate-200"
             title="Zoom Out"
           >
-            <Minus className="w-5 h-5 text-slate-700" />
-            {/* <button><IconMinus className="w-5 h-5 text-slate-700" /></button> */}
+            <IconMinus className="w-5 h-5 text-slate-700" />
           </button>
         </div>
       </div>
@@ -400,31 +373,3 @@ export default function SVGMap({ regions, svgUrl, svgContent }: SVGMapProps) {
 }
 
 export type { SVGMapProps }
-
-// export function IconHome(props: any) {
-//   return (
-//     <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none"
-//       viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-//       <path d="M3 9.5L12 3l9 6.5V21a1 1 0 01-1 1H4a1 1 0 01-1-1z" />
-//     </svg>
-//   );
-// }
-
-// export function IconPlus(props: any) {
-//   return (
-//     <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none"
-//       viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-//       <path d="M12 5v14M5 12h14" />
-//     </svg>
-//   );
-// }
-
-// export function IconMinus(props: any) {
-//   return (
-//     <svg {...props} xmlns="http://www.w3.org/2000/svg" fill="none"
-//       viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-//       <path d="M5 12h14" />
-//     </svg>
-//   );
-// }
-

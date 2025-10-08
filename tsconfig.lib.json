@@ -17,6 +17,11 @@
         "allowSyntheticDefaultImports": true
     },
     "include": [
-        "src"
+        "src/index.ts"
+    ],
+    "exclude": [
+        "**/*.test.ts",
+        "**/*.spec.ts",
+        "src/App.tsx"
     ]
 }

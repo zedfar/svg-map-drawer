@@ -8,6 +8,7 @@ export default defineConfig({
     },
     build: {
         outDir: "dist-app",
+        minify: "esbuild",
         lib: {
             entry: 'src/index.ts',
             name: 'SVGMap',

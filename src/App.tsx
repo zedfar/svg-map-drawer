@@ -4,15 +4,21 @@ import SVGMap from './components/SVGMap';
 import Legend from './components/Legend';
 import { sampleRegions, sampleWorld } from './data/sampleData';
 import { MapRegion } from './types/map';
-import indonesiaSVG from '../public/indonesia.svg?raw';
-import worldSVG from '../public/world.svg?raw';
 
+const urlSvgID = 'https://cdn.jsdelivr.net/gh/zedfar/assets@main/public/svg/map/indonesia.svg'
+const urlSvgWorld = 'https://cdn.jsdelivr.net/gh/zedfar/assets@main/public/svg/map/world.svg'
 
 
 function App() {
   const [availableSvgs] = useState(() => [
-    { id: 'indonesia', name: 'Indonesia Map', file: indonesiaSVG, data: sampleRegions },
-    { id: 'world', name: 'World Map', file: worldSVG, data: sampleWorld },
+    {
+      id: 'indonesia', name: 'Indonesia Map', data: sampleRegions,
+      url: urlSvgID
+    },
+    {
+      id: 'world', name: 'World Map', data: sampleWorld,
+      url: urlSvgWorld
+    },
   ]);
   const [regions, setRegions] = useState<MapRegion[]>([]);
   const [svgContent, setSvgContent] = useState<string>('');
@@ -26,10 +32,10 @@ function App() {
   const [error, setError] = useState<string>('');
 
   const [worldData] = useState<MapRegion[]>(() => sampleWorld);
-  const [svgContentWolrd] = useState<string>(() => worldSVG);
+  // const [svgUrlWolrd] = useState<string>(() => urlSvgWorld);
 
   const [indonesiaData] = useState<MapRegion[]>(() => sampleRegions);
-  const [svgContentIndonesia] = useState<string>(() => indonesiaSVG);
+  // const [svgUrlIndonesia] = useState<string>(() => urlSvgWorld);
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const file = event.target.files?.[0];
@@ -54,8 +60,8 @@ function App() {
     if (svgId) {
       const selected = availableSvgs.find(svg => svg.id === svgId);
       if (selected) {
-        setTempSvgFile(selected.file);
-        setTempSvgUrl('');
+        setTempSvgFile('');
+        setTempSvgUrl(selected.url);
         setJsonInput(JSON.stringify(selected.data, null, 2))
       }
     }
@@ -193,7 +199,7 @@ function App() {
                   value={jsonInput}
                   onChange={(e) => setJsonInput(e.target.value)}
                   placeholder={`[\n  {\n    "id": "region-1",\n    "name": "Region Name",\n    "color": "#3b82f6",\n    "value": 12500\n  }\n]`}
-                  rows={8}
+                  rows={10}
                   className="w-full px-4 py-2 border border-slate-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent outline-none transition-all font-mono text-sm"
                 />
               </div>
@@ -218,7 +224,7 @@ function App() {
 
 
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-6">
-            {svgContent && (
+            {(svgUrl || svgContent) && (
               <>
                 <div className="lg:col-span-3">
                   <div className="h-[600px]">
@@ -254,8 +260,8 @@ function App() {
               <div className="h-[600px]">
                 <SVGMap
                   regions={indonesiaData}
-                  svgUrl={''}
-                  svgContent={svgContentIndonesia}
+                  svgUrl={urlSvgID}
+                  svgContent={''}
                 />
               </div>
             </div>
@@ -272,8 +278,8 @@ function App() {
               <div className="h-[800px]">
                 <SVGMap
                   regions={worldData}
-                  svgUrl={''}
-                  svgContent={svgContentWolrd}
+                  svgUrl={urlSvgWorld}
+                  svgContent={''}
                 />
               </div>
             </div>

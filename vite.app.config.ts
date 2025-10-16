@@ -6,6 +6,7 @@ export default defineConfig({
     define: {
         "process.env.NODE_ENV": JSON.stringify("production"),
     },
+    publicDir: false,
     build: {
         outDir: "dist-app",
         minify: "esbuild",

@@ -23,7 +23,7 @@ A list of SVG maps with direct links.
 2. **World Map**
    * Direct link: [https://cdn.jsdelivr.net/gh/zedfar/assets@main/public/svg/map/world.svg](https://cdn.jsdelivr.net/gh/zedfar/assets@main/public/svg/map/world.svg)
 3. **Quick Access**
-   * Map SVGs: `https://cdn.jsdelivr.net/gh/zedfar/assets@main/public/svg/map/`
+   * Map SVGs: [https://cdn.jsdelivr.net/gh/zedfar/assets@main/public/svg/map/](https://cdn.jsdelivr.net/gh/zedfar/assets@main/public/svg/map/)
 
 ### Notes
 * Both files are served from the `jsdelivr` CDN (package `svg-map-drawer`). Make sure your internet connection or hosting allows loading from this CDN.

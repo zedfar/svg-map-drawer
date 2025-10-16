@@ -4,11 +4,11 @@
 Easy to use, supports zoom, tooltips, and custom colors for each region.
 
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/npm/svg-map-drawer@latest/dist/preview-img-1.png" alt="Preview" width="80%">
+  <img src="https://cdn.jsdelivr.net/gh/zedfar/assets@main/public/image/preview/preview-img-1.png" alt="Preview" width="80%">
 </p>
 
 <p align="center">
-  <img src="https://cdn.jsdelivr.net/npm/svg-map-drawer@latest/dist/preview-img-2.png" alt="Preview" width="80%">
+  <img src="https://cdn.jsdelivr.net/gh/zedfar/assets@main/public/image/preview/preview-img-2.png" alt="Preview" width="80%">
 </p>
 
 ---
@@ -19,9 +19,11 @@ A list of SVG maps with direct links.
 
 ### List
 1. **Indonesia Map**
-   * Direct link: [https://cdn.jsdelivr.net/npm/svg-map-drawer/dist/indonesia.svg](https://cdn.jsdelivr.net/npm/svg-map-drawer/dist/indonesia.svg)
+   * Direct link: [https://cdn.jsdelivr.net/gh/zedfar/assets@main/public/svg/map/indonesia.svg](https://cdn.jsdelivr.net/gh/zedfar/assets@main/public/svg/map/indonesia.svg)
 2. **World Map**
-   * Direct link: [https://cdn.jsdelivr.net/npm/svg-map-drawer/dist/world.svg](https://cdn.jsdelivr.net/npm/svg-map-drawer/dist/world.svg)
+   * Direct link: [https://cdn.jsdelivr.net/gh/zedfar/assets@main/public/svg/map/world.svg](https://cdn.jsdelivr.net/gh/zedfar/assets@main/public/svg/map/world.svg)
+3. **Quick Access**
+   * Map SVGs: `https://cdn.jsdelivr.net/gh/zedfar/assets@main/public/svg/map/`
 
 ### Notes
 * Both files are served from the `jsdelivr` CDN (package `svg-map-drawer`). Make sure your internet connection or hosting allows loading from this CDN.
@@ -175,7 +177,7 @@ Use this script in your HTML if you want to use it without a React bundler:
     root.render(
       SVGMap.React.createElement(SVGMap.default, {
         regions,
-        svgUrl: "https://cdn.jsdelivr.net/npm/svg-map-drawer/dist/indonesia.svg"
+        svgUrl: "https://cdn.jsdelivr.net/gh/zedfar/assets@main/public/svg/map/indonesia.svg"
       })
     );
   </script>

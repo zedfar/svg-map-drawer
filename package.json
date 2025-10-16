@@ -5,7 +5,7 @@
   "publishConfig": {
     "access": "public"
   },
-  "version": "1.0.20",
+  "version": "1.0.21",
   "type": "module",
   "main": "dist/svg-map.umd.js",
   "module": "dist/svg-map.es.js",
